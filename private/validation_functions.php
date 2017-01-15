@@ -33,6 +33,7 @@
 	function is_unique_username($username) {
 		global $db;
 		$sql = "SELECT COUNT(*) AS `count` FROM globitek.users WHERE username='".$username."'";
+		$sql =  mysqli_real_escape_string($sql);
 		$usercount = db_query($db, $sql);
 		$usercount = db_fetch_assoc($usercount);
 		return $usercount['count'] == 0;
