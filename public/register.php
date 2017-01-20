@@ -43,6 +43,7 @@
       $sql = "INSERT INTO `globitek`.`users` ";
 			$sql .= "(`first_name`, `last_name`, `email`, `username`, `created_at`) ";
 			$sql .= "VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$username."', '".$date."')";
+			$sql = db_escape($db, $sql);
       $result = db_query($db, $sql);
       if($result) {
         db_close($db);
